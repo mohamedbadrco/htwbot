@@ -1,6 +1,5 @@
 certifi==2022.6.15.1
 charset-normalizer==2.1.1
-gyp==0.1
 idna==3.3
 oauthlib==3.2.1
 Pygments==2.7.1
