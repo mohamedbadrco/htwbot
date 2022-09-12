@@ -84,7 +84,7 @@ def main():
         try:
             followlike(random.choice(name))
             tweet()
-            sleep(100)
+            sleep(1800)
         except:
             pass
 
