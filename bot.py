@@ -24,8 +24,7 @@ def getitem():
     # print the json response
     return (random.choice(data_json["items"]))
 
-def tweet():
-    
+def getapi():
     consumer_key = os.environ["API_KEY"]
     consumer_secret = os.environ["API_KEY_S"]
     access_token = os.environ["ACS_TKN"]
@@ -33,19 +32,33 @@ def tweet():
 
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
     auth.set_access_token(access_token, access_token_secret)
-    api = tweepy.API(auth)
+    return tweepy.API(auth)
+
+def tweet():
+    #get twitter api
+    api = getapi()
+
+    #get item from rar api 
     item = getitem()
+
     url = (item["meta"]["content"][0]["url"])
     price = item['bestSellOrder']['makePrice']
 
-   
+    hashtags = ["#NFTCommunity", "#NFTsales" "#Linux",  "#digitalart",  "#penguin" , "#asciiart" ,"#Matrix"]
+     
+    cht = [random.choice(hashtags),random.choice(hashtags),random.choice(hashtags)]
 
-    text = f"""{item["meta"]["name"]}  >  {price} ${item["blockchain"]}
+    text = f"""
 
-    new collocation of unique #ASCII #gifs art available @ https://rarible.com/Photo_Hash 
-    #RT and #Follow for the chance to won one free #NFTs 
 
-    #NFTCommunity #NFTsales #Linux #ETH #Crypto #digitalart #NFTs #penguin #asciiart #Matrix"""
+
+    {item["meta"]["name"]}  >  {price} {item["blockchain"]}
+    new collocation of unique #ASCII #gifs art available @ 
+    https://rarible.com/Photo_Hash 
+    #RT and #Follow @mobadr for the chance to won one free #NFT
+     
+    #ETH #Crypto #NFTs {cht[0]} {cht[1]} {cht[2]}
+    """
 
 
     print(len(text))
@@ -54,10 +67,26 @@ def tweet():
 
     api.update_status_with_media(status=text,filename="image.gif")
 
+def followlike(serchq):
+    
+    api = getapi()
+
+    for tweet in api.search_tweets(q=serchq, lang="en"):
+        api.create_friendship(user_id=tweet.user.id)
+
+    for tweet in api.search_tweets(q=serchq, lang="en"):
+        api.create_favorite(id=tweet.id)
+
+
 def main():
+    name = ["nft","Crypto","ETH"]
     while True:
-        tweet()
-        sleep(1800)
+        try:
+            followlike(random.choice(name))
+            tweet()
+            sleep(100)
+        except:
+            pass
 
 
 if __name__ == "__main__":
