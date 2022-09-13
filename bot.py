@@ -55,7 +55,7 @@ def tweet():
     {item["meta"]["name"]}  >  {price} {item["blockchain"]}
     new collocation of unique #ASCII #gifs art available @ 
     https://rarible.com/Photo_Hash 
-    #RT and #Follow @mobadr for the chance to won one free #NFT
+    #RT and #Follow @mobadr_co for the chance to won one free #NFT
      
     #ETH #Crypto #NFTs {cht[0]} {cht[1]} {cht[2]}
     """
