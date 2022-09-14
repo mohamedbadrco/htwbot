@@ -137,7 +137,7 @@ def tweetnews():
 
     text = f""" {author} 
     {title } 
-     #ETH #Crypto #NFTs {cht[0]} {cht[1]} {cht[2]} """
+     #ETH #Crypto #NFTs {cht[0]}  {cht[1]}  {cht[2]} """
     print(len(text))
     print(text)
     api.update_status_with_media(status=text,filename="image.jpeg")
