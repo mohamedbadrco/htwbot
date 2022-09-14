@@ -154,20 +154,19 @@ def main():
         try:
             follow(random.choice(name))
         except:
-            continue
+            pass
         try:
             like(random.choice(name))
         except:
-            continue
+            pass
         try:
             tweet()
         except:
-            continue
+            pass
         try:
             tweetnews()
         except:
-            continue
-        
+            pass 
         sleep(9000)
 
 if __name__ == "__main__":
