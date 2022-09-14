@@ -163,12 +163,12 @@ def main():
             tweet()
         except:
             pass
-        sleep(4500)
+        sleep(450)
         try:
             tweetnews()
         except:
             pass 
-        sleep(4500)
+        sleep(450)
 
 if __name__ == "__main__":
     main()
