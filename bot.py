@@ -58,13 +58,13 @@ def tweet():
     {item["meta"]["name"]}  >  {price} {item["blockchain"]}
     new collocation of unique #ASCII #gifs art available @ 
     https://rarible.com/Photo_Hash 
-    #RT and #Follow @mobadr_co for the chance to won one free #NFT
+    #RT and #Follow @mobadr for the chance to won one free #NFT
      
     #ETH #Crypto #NFTs {cht[0]} {cht[1]} {cht[2]}
     """
 
 
-    print(len(text))
+    # print(len(text))
     response = requests.get(url)
     open("image.gif", "wb").write(response.content)
 
@@ -134,13 +134,17 @@ def tweetnews():
     author = ""
     if ar["author"] != None:
         author = ar["author"]
-
+    arurl = ar["url"]
     text = f""" {author} 
     {title } 
-     #ETH #Crypto #NFTs {cht[0]}  {cht[1]}  {cht[2]} """
-    print(len(text))
-    print(text)
-    api.update_status_with_media(status=text,filename="image.jpeg")
+    {arurl}
+     #ETH #Crypto #NFTs {cht[0]} {cht[1]} {cht[2]} """
+    # print(len(text))
+    # print(text)
+    if ar["urlToImage"] != None:
+        api.update_status(status=text)
+    else:
+        api.update_status_with_media(status=text,filename="image.jpeg")
 
 
 def main():
@@ -150,19 +154,19 @@ def main():
         try:
             follow(random.choice(name))
         except:
-            pass
+            continue
         try:
             like(random.choice(name))
         except:
-            pass
+            continue
         try:
             tweet()
         except:
-            pass
+            continue
         try:
             tweetnews()
         except:
-            pass
+            continue
         
         sleep(9000)
 
