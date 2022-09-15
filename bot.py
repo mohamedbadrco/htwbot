@@ -54,14 +54,13 @@ def tweet():
     text = f"""
 
 
-
-    {item["meta"]["name"]}  >  {price} {item["blockchain"]}
+    {item["meta"]["name"]}  >  {price} {item["blockchain"]} 
+	
     new collocation of unique #ASCII #gifs art available @ 
     https://rarible.com/Photo_Hash 
     #RT and #Follow @mobadr for the chance to won one free #NFT
      
-    #ETH #Crypto #NFTs {cht[0]} {cht[1]} {cht[2]}
-    """
+    #ETH #Crypto #NFTs {cht[0]} {cht[1]} {cht[2]} """
 
 
     # print(len(text))
@@ -74,10 +73,11 @@ def follow(serchq):
     api = getapi()
 
     for tweet in api.search_tweets(q=serchq, lang="en"):
-        try:
-            api.create_friendship(user_id=tweet.user.id)
-        except:
-            continue
+        for i in range(5):
+            try:
+                api.create_friendship(user_id=tweet.user.id)
+            except:
+                continue
 
     
 
@@ -85,10 +85,11 @@ def like(serchq):
     api = getapi()
 
     for tweet in api.search_tweets(q=serchq, lang="en"):
-        try:
-            api.create_favorite(id=tweet.id)
-        except:
-            continue
+        for i in range(5):
+            try:
+                api.create_favorite(id=tweet.id)
+            except:
+                continue
 
 def News(q):
      
@@ -98,7 +99,7 @@ def News(q):
     #  and apiKey
     query_params = {
       "sortBy": "top",
-      "apiKey": "e20b8ba1cf5848de8077b7ad536ba561",
+      "apiKey": os.environ["NEWS_API_K"],
       "q": q
     }
     main_url = " https://newsapi.org/v2/everything"
@@ -163,12 +164,12 @@ def main():
             tweet()
         except:
             pass
-        sleep(450)
+        sleep(1800)
         try:
             tweetnews()
         except:
             pass 
-        sleep(450)
+        sleep(1800)
 
 if __name__ == "__main__":
     main()
