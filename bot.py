@@ -101,7 +101,7 @@ def follow(serchq):
     api = getapi()
     a = 0 
     for tweet in api.search_tweets(q=serchq, lang="en"):
-        
+        a += 1
         try:
             api.create_friendship(user_id=tweet.user.id)
         except:
