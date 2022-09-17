@@ -78,9 +78,7 @@ def tweet():
     {cht[0]} {cht[1]} {cht[2]} """
 
     text2 = f"""
-
-
-    {item["meta"]["name"]}  >  {price} {item["blockchain"]} 
+	{item["meta"]["name"]}  >  {price} {item["blockchain"]} 
 	
     Buy Item  art available @  https://rarible.com/Photo_Hash 
 
@@ -89,6 +87,8 @@ def tweet():
      #ASCII #gifs
     #ETH #Crypto #NFTs 
      {cht[0]} {cht[1]} {cht[2]} """
+	 
+	 
     texts=[text0,text1,text2]
 
     # print(len(text))
@@ -99,25 +99,30 @@ def tweet():
 
 def follow(serchq):
     api = getapi()
-
+    a = 0 
     for tweet in api.search_tweets(q=serchq, lang="en"):
-        for i in range(5):
-            try:
-                api.create_friendship(user_id=tweet.user.id)
-            except:
-                continue
+        
+        try:
+            api.create_friendship(user_id=tweet.user.id)
+        except:
+            continue
+        if a > 5:
+            break
 
     
 
 def like(serchq):
     api = getapi()
-
+    a = 0
     for tweet in api.search_tweets(q=serchq, lang="en"):
-        for i in range(5):
-            try:
-                api.create_favorite(id=tweet.id)
-            except:
-                continue
+        a += 1
+        try:
+            api.create_favorite(id=tweet.id)
+        except:
+            continue
+        if a > 5:
+            break
+        
 
 def News(q):
      
