@@ -51,23 +51,51 @@ def tweet():
      
     cht = [random.choice(hashtags),random.choice(hashtags),random.choice(hashtags)]
 
-    text = f"""
+    text0 = f"""
 
 
-    {item["meta"]["name"]}  >  {price} {item["blockchain"]} 
+    
 	
     new collocation of unique #ASCII #gifs art available @ 
     https://rarible.com/Photo_Hash 
     #RT and #Follow @mobadr for the chance to won one free #NFT
      
-    #ETH #Crypto #NFTs {cht[0]} {cht[1]} {cht[2]} """
+    #ETH #Crypto #NFTs {cht[0]} {cht[1]} {cht[2]}
+    {item["meta"]["name"]}  >  {price} {item["blockchain"]} 
+      """
 
+    text1 = f"""
+    buy NEW Item #ASCII #gifs art
+
+    {item["meta"]["name"]}  >  {price} {item["blockchain"]} 
+	
+    available @ 
+    https://rarible.com/Photo_Hash 
+
+    #RT and #Follow @mobadr for the chance to won one free #NFT
+     
+    #ETH #Crypto #NFTs 
+    {cht[0]} {cht[1]} {cht[2]} """
+
+    text2 = f"""
+
+
+    {item["meta"]["name"]}  >  {price} {item["blockchain"]} 
+	
+    Buy Item  art available @  https://rarible.com/Photo_Hash 
+
+    #RT and #Follow @mobadr for the chance to won one free #NFT
+     
+     #ASCII #gifs
+    #ETH #Crypto #NFTs 
+     {cht[0]} {cht[1]} {cht[2]} """
+    texts=[text0,text1,text2]
 
     # print(len(text))
     response = requests.get(url)
     open("image.gif", "wb").write(response.content)
 
-    api.update_status_with_media(status=text,filename="image.gif")
+    api.update_status_with_media(status=random.choice(texts),filename="image.gif")
 
 def follow(serchq):
     api = getapi()
@@ -137,9 +165,14 @@ def tweetnews():
         author = ar["author"]
     arurl = ar["url"]
     text = f""" {author} 
+
     {title } 
+
     {arurl}
-     #ETH #Crypto #NFTs {cht[0]} {cht[1]} {cht[2]} """
+
+    @mobadr_co
+    #ETH #Crypto #NFTs #NEWS
+    {cht[0]} {cht[1]} {cht[2]} """
     # print(len(text))
     # print(text)
     if ar["urlToImage"] != None:
