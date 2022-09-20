@@ -58,7 +58,7 @@ def tweet():
 	
     new collocation of unique #ASCII #gifs art available @ 
     https://rarible.com/Photo_Hash 
-    #RT and #Follow @mobadr for the chance to won one free #NFT
+    #RT and #Follow @mobadr_co for the chance to won one free #NFT
      
     #ETH #Crypto #NFTs {cht[0]} {cht[1]} {cht[2]}
     {item["meta"]["name"]}  >  {price} {item["blockchain"]} 
@@ -72,7 +72,7 @@ def tweet():
     available @ 
     https://rarible.com/Photo_Hash 
 
-    #RT and #Follow @mobadr for the chance to won one free #NFT
+    #RT and #Follow @mobadr_co for the chance to won one free #NFT
      
     #ETH #Crypto #NFTs 
     {cht[0]} {cht[1]} {cht[2]} """
@@ -82,7 +82,7 @@ def tweet():
 	
     Buy Item  art available @  https://rarible.com/Photo_Hash 
 
-    #RT and #Follow @mobadr for the chance to won one free #NFT
+    #RT and #Follow @mobadr_co for the chance to won one free #NFT
      
      #ASCII #gifs
     #ETH #Crypto #NFTs 
